@@ -21,7 +21,7 @@
             height: 100vh;
             background: transparent;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         #orb-container {
@@ -30,17 +30,19 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: 0;
+            z-index: 1;
             pointer-events: none;
             background: transparent;
         }
 
         canvas {
-            position: absolute !important;
+            position: fixed !important;
             top: 50% !important;
             left: 50% !important;
             transform: translate(-50%, -50%) !important;
             pointer-events: none;
+            width: 100vw !important;
+            height: 100vh !important;
         }
 
         * {
@@ -67,6 +69,21 @@
 <body>
     <div id="orb-container"></div>
     <div id="root"></div>
+    
+    <!-- Initialize orb animation -->
+    <script>
+        window.addEventListener('load', () => {
+            // Wait a bit for everything to be ready
+            setTimeout(() => {
+                if (typeof initOrbAnimation === 'function') {
+                    console.log('Initializing orb animation...');
+                    initOrbAnimation();
+                } else {
+                    console.error('initOrbAnimation not found');
+                }
+            }, 1000);
+        });
+    </script>
     
     <!-- Load OrbAnimation first -->
     <script type="text/babel" src="src/components/OrbAnimation.jsx"></script>
