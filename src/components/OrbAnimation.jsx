@@ -1,7 +1,3 @@
-import * as THREE from 'three';
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-
 // Create and initialize the orb animation
 function initOrbAnimation() {
     const container = document.getElementById('orb-container');

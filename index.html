@@ -32,7 +32,7 @@
             height: 100vh;
             z-index: 0;
             pointer-events: none;
-            background: #121212;
+            background: transparent;
         }
 
         canvas {
@@ -67,7 +67,11 @@
 <body>
     <div id="orb-container"></div>
     <div id="root"></div>
+    
+    <!-- Load OrbAnimation first -->
     <script type="text/babel" src="src/components/OrbAnimation.jsx"></script>
+    
+    <!-- Then load App -->
     <script type="text/babel" src="src/App.jsx"></script>
 </body>
 </html> 
