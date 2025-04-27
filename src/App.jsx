@@ -7,9 +7,6 @@ const {
   CircularProgress
 } = MaterialUI;
 
-// Import OrbAnimation component
-const OrbAnimation = window.OrbAnimation;
-
 // Create a dark theme instance
 const darkTheme = createTheme({
   palette: {
@@ -138,7 +135,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Box sx={{ display: 'flex', height: '100vh' }}>
+      <Box sx={{ display: 'flex', height: '100vh', position: 'relative' }}>
         {/* Window Controls */}
         <Box
           sx={{
@@ -194,8 +191,9 @@ function App() {
             '& .MuiDrawer-paper': {
               width: 240,
               boxSizing: 'border-box',
-              background: '#1E1E1E',
-              borderRight: '1px solid rgba(255, 255, 255, 0.1)'
+              background: 'rgba(30, 30, 30, 0.8)',
+              borderRight: '1px solid rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(10px)'
             },
           }}
         >
@@ -252,14 +250,25 @@ function App() {
         </Drawer>
 
         {/* Main content */}
-        <Box component="main" sx={{ flexGrow: 1, p: 3, position: 'relative', background: '#121212' }}>
-          <OrbAnimation />
+        <Box 
+          component="main" 
+          sx={{ 
+            flexGrow: 1, 
+            p: 3, 
+            position: 'relative', 
+            background: 'transparent',
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden'
+          }}
+        >
           <AppBar 
             position="fixed" 
             sx={{ 
-              background: 'transparent',
+              background: 'rgba(30, 30, 30, 0.8)',
               boxShadow: 'none',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+              borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(10px)'
             }}
           >
             <Toolbar>
@@ -303,7 +312,9 @@ function App() {
               display: 'flex',
               flexDirection: 'column',
               gap: 2,
-              py: 2
+              py: 2,
+              position: 'relative',
+              zIndex: 1
             }}
           >
             {messages.map(message => (
@@ -343,7 +354,9 @@ function App() {
               bottom: 24,
               left: 24,
               right: 24,
-              background: '#1E1E1E'
+              background: 'rgba(30, 30, 30, 0.8)',
+              backdropFilter: 'blur(10px)',
+              zIndex: 1
             }}
           >
             <InputBase
