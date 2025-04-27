@@ -7,6 +7,9 @@ const {
   CircularProgress
 } = MaterialUI;
 
+// Import OrbAnimation component
+const OrbAnimation = window.OrbAnimation;
+
 // Create a dark theme instance
 const darkTheme = createTheme({
   palette: {
@@ -250,10 +253,11 @@ function App() {
 
         {/* Main content */}
         <Box component="main" sx={{ flexGrow: 1, p: 3, position: 'relative', background: '#121212' }}>
+          <OrbAnimation />
           <AppBar 
             position="fixed" 
             sx={{ 
-              background: '#1E1E1E',
+              background: 'transparent',
               boxShadow: 'none',
               borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
             }}
