@@ -15,6 +15,21 @@ const darkTheme = createTheme({
       default: '#121212',
       paper: '#1E1E1E'
     }
+  },
+  typography: {
+    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
+    h6: {
+      fontWeight: 600,
+      letterSpacing: '0.02em'
+    },
+    h5: {
+      fontWeight: 600,
+      letterSpacing: '0.02em'
+    },
+    body1: {
+      fontWeight: 400,
+      letterSpacing: '0.01em'
+    }
   }
 });
 
@@ -181,16 +196,16 @@ function App() {
             },
           }}
         >
-          <Toolbar>
+          <Toolbar sx={{ paddingTop: '16px' }}>
             <Typography
               variant="h6"
               sx={{
                 color: '#FFFFFF',
                 fontWeight: 600,
-                letterSpacing: '2px',
+                letterSpacing: '0.02em',
                 fontSize: '20px',
                 ml: 2,
-                mt: '4px',
+                mt: '8px',
                 position: 'relative',
                 left: '32px'
               }}
@@ -252,7 +267,7 @@ function App() {
                   flexGrow: 1, 
                   color: '#FFFFFF',
                   fontWeight: 600,
-                  letterSpacing: '2px',
+                  letterSpacing: '0.02em',
                   fontSize: '24px'
                 }}
               >

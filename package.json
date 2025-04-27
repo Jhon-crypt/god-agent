@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "dev": "NODE_ENV=development electron .",
-    "build": "electron-builder"
+    "build": "vite build"
   },
   "author": "",
   "license": "MIT",
@@ -15,7 +15,8 @@
     "@babel/preset-react": "^7.22.0",
     "electron": "^28.0.0",
     "electron-builder": "^24.9.1",
-    "electron-reloader": "^1.2.3"
+    "electron-reloader": "^1.2.3",
+    "vite": "^5.0.0"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
