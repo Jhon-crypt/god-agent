@@ -7,21 +7,17 @@ function initOrbAnimation() {
         console.error('Orb container not found');
         return;
     }
-    
-    console.log('Container found, dimensions:', container.clientWidth, container.clientHeight);
 
     // Scene setup
     const scene = new THREE.Scene();
     
     // Calculate container dimensions
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const width = container.clientWidth;
+    const height = container.clientHeight;
     
     // Camera setup with narrower FOV for better perspective
     const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
-    // Move camera back and up slightly
     camera.position.z = 5;
-    camera.position.y = -0.5;
     
     // Renderer setup
     const renderer = new THREE.WebGLRenderer({ 
@@ -56,8 +52,6 @@ function initOrbAnimation() {
     });
 
     const orb = new THREE.Mesh(geometry, material);
-    // Position the orb in the center of the main content area
-    orb.position.y = 1;
     scene.add(orb);
     console.log('Orb added to scene');
     
@@ -89,7 +83,7 @@ function initOrbAnimation() {
 
     // Add GSAP animations - smaller float range
     gsap.to(orb.position, {
-        y: 1.1,  // Float around the new center position
+        y: 0.1, // Float around the center position
         duration: 2,
         yoyo: true,
         repeat: -1,
@@ -98,8 +92,8 @@ function initOrbAnimation() {
 
     // Handle window resize
     function handleResize() {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+        const width = container.clientWidth;
+        const height = container.clientHeight;
         
         camera.aspect = width / height;
         camera.updateProjectionMatrix();

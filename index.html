@@ -27,22 +27,22 @@
         #orb-container {
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100vw;
+            left: 240px;
+            width: calc(100vw - 240px);
             height: 100vh;
             z-index: 1;
             pointer-events: none;
             background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         canvas {
-            position: fixed !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
+            position: relative !important;
+            width: 100% !important;
+            height: 100% !important;
             pointer-events: none;
-            width: 100vw !important;
-            height: 100vh !important;
         }
 
         * {
@@ -73,7 +73,6 @@
     <!-- Initialize orb animation -->
     <script>
         window.addEventListener('load', () => {
-            // Wait a bit for everything to be ready
             setTimeout(() => {
                 if (typeof initOrbAnimation === 'function') {
                     console.log('Initializing orb animation...');
